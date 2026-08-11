@@ -106,6 +106,7 @@ output/
 /Assets/Resources/**/*.meta
 /Assets/Scenes.meta
 /Assets/Scripts.meta
+/Assets/Scripts/*.meta
 /Assets/Scripts/*/*.meta
 /Assets/Settings.meta
 /Assets/StreamingAssets.meta
