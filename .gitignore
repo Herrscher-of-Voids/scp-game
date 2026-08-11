@@ -91,3 +91,22 @@ output/
 /Assets/StreamingAssets/Data/Scps/
 /Assets/StreamingAssets/Data/Scps.meta
 /Assets/StreamingAssets/Data.meta
+
+# 已退出首次 Godot 私有源码范围的 Unity 工程与旁车元数据
+/ProjectSettings/
+/Assets/Scenes/
+/Assets/Settings/
+/Assets/DefaultVolumeProfile.asset*
+/Assets/UniversalRenderPipelineGlobalSettings.asset*
+/Assets/Resources/UI/O5/
+/Assets/Resources/UI/OverseerScreen.*
+/Assets/*.meta
+/Assets/Data.meta
+/Assets/Resources.meta
+/Assets/Resources/**/*.meta
+/Assets/Scenes.meta
+/Assets/Scripts.meta
+/Assets/Scripts/*/*.meta
+/Assets/Settings.meta
+/Assets/StreamingAssets.meta
+/Assets/UI Toolkit.meta
