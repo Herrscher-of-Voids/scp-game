@@ -1,0 +1,1 @@
+{"id":{"number":76},"class":"Keter","traits":[{"trait":"ActDormantCycle","params":[]},{"trait":"ContReviving","params":[]},{"trait":"AffectLethalContact","params":[]}],"requirement":{"minimumSecurityLevel":5,"requiredObserverCapacity":0,"monthlyCost":110000},"baseBreachChance":600,"researchValue":{"initialValue":800,"decayPerCycle":25,"minimumValue":150},"capabilities":[]}

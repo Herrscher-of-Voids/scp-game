@@ -1,0 +1,1 @@
+{"id":{"number":131},"class":"Safe","traits":[{"trait":"MoveFollowing","params":[]},{"trait":"ActVoluntaryCompliance","params":[]}],"requirement":{"minimumSecurityLevel":1,"requiredObserverCapacity":0,"monthlyCost":8000},"baseBreachChance":10,"researchValue":{"initialValue":220,"decayPerCycle":8,"minimumValue":40},"capabilities":[]}

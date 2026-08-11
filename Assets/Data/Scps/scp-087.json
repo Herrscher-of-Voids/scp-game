@@ -1,0 +1,1 @@
+{"id":{"number":87},"class":"Euclid","traits":[{"trait":"MoveNonEuclidean","params":[]},{"trait":"ContLocationBound","params":[]},{"trait":"AffectMoraleDrain","params":[]}],"requirement":{"minimumSecurityLevel":3,"requiredObserverCapacity":0,"monthlyCost":45000},"baseBreachChance":100,"researchValue":{"initialValue":500,"decayPerCycle":15,"minimumValue":90},"capabilities":[]}

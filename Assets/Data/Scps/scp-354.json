@@ -1,0 +1,1 @@
+{"id":{"number":354},"class":"Keter","traits":[{"trait":"YieldSpawningEntity","params":[]},{"trait":"ContLocationBound","params":[]}],"requirement":{"minimumSecurityLevel":5,"requiredObserverCapacity":0,"monthlyCost":125000},"baseBreachChance":650,"researchValue":{"initialValue":850,"decayPerCycle":25,"minimumValue":170},"capabilities":[]}

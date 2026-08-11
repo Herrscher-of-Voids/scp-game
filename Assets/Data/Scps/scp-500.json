@@ -1,0 +1,1 @@
+{"id":{"number":500},"class":"Safe","traits":[{"trait":"AffectHealing","params":[]}],"requirement":{"minimumSecurityLevel":2,"requiredObserverCapacity":0,"monthlyCost":12000},"baseBreachChance":5,"researchValue":{"initialValue":900,"decayPerCycle":35,"minimumValue":100},"capabilities":[]}

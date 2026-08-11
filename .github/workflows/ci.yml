@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      # src/ 下的类库 csproj 通过显式 Compile Include 指向 Assets/Scripts/<层>/，
+      # 源码只有一份，Unity 与 dotnet 共用。checkout 必须包含 Assets/。
+      - run: dotnet restore ScpGame.sln
+      - run: dotnet build ScpGame.sln --no-restore --configuration Release
+      - run: dotnet test ScpGame.sln --no-build --configuration Release
+      - name: Verify M0/M1 console acceptance
+        run: |
+          dotnet run --project src/Scp.Host.Console --no-build --configuration Release -- --m0
+          dotnet run --project src/Scp.Host.Console --no-build --configuration Release -- --m1

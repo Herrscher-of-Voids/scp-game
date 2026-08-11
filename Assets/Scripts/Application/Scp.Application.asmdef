@@ -1,0 +1,17 @@
+{
+    "name": "Scp.Application",
+    "rootNamespace": "Scp.Application",
+    "references": [
+        "Scp.Domain",
+        "Scp.Simulation"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

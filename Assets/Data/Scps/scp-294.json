@@ -1,0 +1,1 @@
+{"id":{"number":294},"class":"Euclid","traits":[{"trait":"YieldOnRequest","params":[]}],"requirement":{"minimumSecurityLevel":3,"requiredObserverCapacity":0,"monthlyCost":30000},"baseBreachChance":80,"researchValue":{"initialValue":500,"decayPerCycle":20,"minimumValue":80},"capabilities":[]}

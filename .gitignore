@@ -1,0 +1,93 @@
+# .NET
+bin/
+obj/
+artifacts/
+TestResults/
+*.user
+*.suo
+*.cache
+*.nupkg
+
+# Godot 派生缓存与沙箱 user:// 重定向目录
+.godot/
+.godot-user/
+
+# 本地引擎、调试配置与开发工具状态
+Tools/
+.dbg/
+.trae/
+
+# 首次私有源码仓库只保留可运行、构建与测试所需内容
+docs/
+prototypes/
+Packages/
+Assets/Scripts/Presentation/
+Assets/UI Toolkit/
+Assets/Resources/Audio/ThirdParty/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.DotSettings.user
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+Assets/AssetStoreTools*
+Assets/Plugins/Editor/JetBrains*
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+sysinfo.txt
+crashlytics-build.properties
+
+# Unity 自动生成到仓库根目录的工程文件。
+# 注意：src/ 与 tests/ 下的 csproj 以及根目录的 ScpGame.sln 是手写维护的，不得忽略。
+/Assembly-CSharp*.csproj
+/Scp.Domain.csproj
+/Scp.Simulation.csproj
+/Scp.Application.csproj
+/Scp.Presentation.csproj
+/Scp.Tests.*.csproj
+/Unity.*.csproj
+/UnityEditor.*.csproj
+/*.Editor.csproj
+/*.Player.csproj
+/SCP?game.sln
+/SCP_game.sln
+
+# .meta 文件必须提交，此处显式反忽略以防上游规则误伤
+!*.meta
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# M0 output
+output/
+
+# StreamingAssets 下的 SCP 配置是派生产物，唯一编辑源是 Assets/Data/Scps。
+# 由 SCP/Sync SCP Content To StreamingAssets 菜单与构建前置处理（ScpContentBuildHook）生成，
+# 因此不入库，避免同一份 JSON 存在两处需要人工同步的副本。
+#
+# 连 .meta 一起忽略（必须写在上面 "!*.meta" 之后才能生效，git 取最后匹配的规则）：
+# 若只忽略 JSON 而提交 .meta，克隆仓库的人会拿到一堆指向不存在文件的孤立 .meta，
+# Unity 启动时会把它们全部删掉，导致 git status 里凭空出现一批删除记录——比重新生成更烦人。
+# 整个目录都不入库时，Unity 会在首次同步后自行生成配套 .meta，不产生任何脏状态。
+/Assets/StreamingAssets/Data/Scps/
+/Assets/StreamingAssets/Data/Scps.meta
+/Assets/StreamingAssets/Data.meta

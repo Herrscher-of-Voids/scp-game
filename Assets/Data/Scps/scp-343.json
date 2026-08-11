@@ -1,0 +1,1 @@
+{"id":{"number":343},"class":"Safe","traits":[{"trait":"ActVoluntaryCompliance","params":[]},{"trait":"AffectHealing","params":[]},{"trait":"InfoTruthCompulsion","params":[]}],"requirement":{"minimumSecurityLevel":1,"requiredObserverCapacity":0,"monthlyCost":5000},"baseBreachChance":0,"researchValue":{"initialValue":400,"decayPerCycle":5,"minimumValue":150},"capabilities":[]}

@@ -1,0 +1,1 @@
+{"id":{"number":73},"class":"Safe","traits":[{"trait":"AffectDamageReflection","params":[]},{"trait":"ActVoluntaryCompliance","params":[]}],"requirement":{"minimumSecurityLevel":2,"requiredObserverCapacity":0,"monthlyCost":15000},"baseBreachChance":20,"researchValue":{"initialValue":350,"decayPerCycle":10,"minimumValue":80},"capabilities":[]}

@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!--
+    迁移期语言版本按目标框架分流：仍供 Unity 对照编译的 netstandard2.1 共享工程保持 C# 9；
+    正式 Godot net8.0 工程在自身 csproj 明确使用 C# 12。这样不会迫使共享三层批量改写语法。
+    During migration, language versions follow target frameworks: netstandard2.1 shared projects retained
+    for Unity comparison stay on C# 9, while the official Godot net8.0 project explicitly selects C# 12.
+  -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+</Project>

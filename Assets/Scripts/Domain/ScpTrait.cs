@@ -1,0 +1,40 @@
+namespace Scp.Domain
+{
+    public enum ScpTrait
+    {
+        ActObservationLocked,
+        ActDormantCycle,
+        ActConditionalTrigger,
+        ActCompelledResponse,
+        ActVoluntaryCompliance,
+        MovePhasing,
+        MovePocketDimension,
+        MoveNonEuclidean,
+        MoveFollowing,
+        MoveNetworkTraversal,
+        MovePackHunting,
+        AffectLethalContact,
+        AffectMoraleBoost,
+        AffectMoraleDrain,
+        AffectPossession,
+        AffectTransformation,
+        AffectDamageReflection,
+        AffectHealing,
+        YieldOnRequest,
+        YieldRefinement,
+        YieldSpawningEntity,
+        YieldResource,
+        YieldReconstruction,
+        InfoAntimemetic,
+        InfoCognitiveHazard,
+        InfoDeceptiveMimicry,
+        InfoTruthCompulsion,
+        InfoPropagating,
+        ContRegenerating,
+        ContAdaptive,
+        ContReviving,
+        ContLocationBound,
+        ContSpecialFacility,
+        ContEscalating
+    }
+}

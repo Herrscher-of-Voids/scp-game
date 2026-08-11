@@ -1,0 +1,1 @@
+{"id":{"number":2000},"class":"Thaumiel","traits":[{"trait":"YieldReconstruction","params":[]},{"trait":"ContSpecialFacility","params":[]}],"requirement":{"minimumSecurityLevel":5,"requiredObserverCapacity":0,"monthlyCost":200000},"baseBreachChance":100,"researchValue":{"initialValue":1200,"decayPerCycle":10,"minimumValue":500},"capabilities":["WorldReconstruction"]}

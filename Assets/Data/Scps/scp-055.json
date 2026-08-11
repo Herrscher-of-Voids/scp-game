@@ -1,0 +1,1 @@
+{"id":{"number":55},"class":"Keter","traits":[{"trait":"InfoAntimemetic","params":[]}],"requirement":{"minimumSecurityLevel":5,"requiredObserverCapacity":0,"monthlyCost":95000},"baseBreachChance":300,"researchValue":{"initialValue":900,"decayPerCycle":15,"minimumValue":200},"capabilities":[]}

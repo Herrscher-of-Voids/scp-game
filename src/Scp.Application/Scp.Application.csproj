@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!-- 源码物理位置在 Assets/Scripts/Application（Unity asmdef 侧），此处显式包含同一份源码 -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ScpSourceRoot>$(MSBuildThisFileDirectory)../../Assets/Scripts/Application/</ScpSourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scp.Domain\Scp.Domain.csproj" />
+    <ProjectReference Include="..\Scp.Simulation\Scp.Simulation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(ScpSourceRoot)**\*.cs" />
+  </ItemGroup>
+
+</Project>

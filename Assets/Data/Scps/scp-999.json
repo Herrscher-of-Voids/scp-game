@@ -1,0 +1,1 @@
+{"id":{"number":999},"class":"Safe","traits":[{"trait":"AffectMoraleBoost","params":[]},{"trait":"AffectHealing","params":[]},{"trait":"ActVoluntaryCompliance","params":[]}],"requirement":{"minimumSecurityLevel":1,"requiredObserverCapacity":0,"monthlyCost":10000},"baseBreachChance":5,"researchValue":{"initialValue":300,"decayPerCycle":10,"minimumValue":60},"capabilities":[]}

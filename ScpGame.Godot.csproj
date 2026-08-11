@@ -1,0 +1,28 @@
+<Project Sdk="Godot.NET.Sdk/4.7.1">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Scp.Godot</RootNamespace>
+    <!-- 共享三层仍物理存放于 Assets/Scripts；关闭默认项以保证只编译明确列出的正式源码。 -->
+    <!-- The shared layers remain physically under Assets/Scripts; default items are disabled so only official, explicit sources compile. -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ScpAssetsRoot>$(MSBuildThisFileDirectory)Assets/Scripts/</ScpAssetsRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Application 的 JSON 加载器所需版本与现有 dotnet 工程一致。 -->
+    <!-- Keep Application's JSON dependency aligned with the existing dotnet project. -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 同一份 Domain/Simulation/Application 源码；Unity Presentation 明确排除。 -->
+    <!-- The single Domain/Simulation/Application source; Unity Presentation is explicitly excluded. -->
+    <Compile Include="$(ScpAssetsRoot)Domain/**/*.cs" />
+    <Compile Include="$(ScpAssetsRoot)Simulation/**/*.cs" />
+    <Compile Include="$(ScpAssetsRoot)Application/**/*.cs" />
+    <!-- 正式 Godot 表现层，不依赖 prototypes。 -->
+    <!-- Official Godot presentation, independent from prototypes. -->
+    <Compile Include="Godot/Scripts/**/*.cs" />
+  </ItemGroup>
+</Project>

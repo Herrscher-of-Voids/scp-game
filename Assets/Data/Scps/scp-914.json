@@ -1,0 +1,1 @@
+{"id":{"number":914},"class":"Safe","traits":[{"trait":"YieldRefinement","params":[]}],"requirement":{"minimumSecurityLevel":2,"requiredObserverCapacity":0,"monthlyCost":25000},"baseBreachChance":30,"researchValue":{"initialValue":800,"decayPerCycle":24,"minimumValue":160},"capabilities":[]}

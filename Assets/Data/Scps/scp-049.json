@@ -1,0 +1,1 @@
+{"id":{"number":49},"class":"Euclid","traits":[{"trait":"AffectTransformation","params":[]},{"trait":"ActConditionalTrigger","params":[]}],"requirement":{"minimumSecurityLevel":4,"requiredObserverCapacity":0,"monthlyCost":60000},"baseBreachChance":250,"researchValue":{"initialValue":600,"decayPerCycle":18,"minimumValue":100},"capabilities":[]}

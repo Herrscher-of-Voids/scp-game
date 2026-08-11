@@ -1,0 +1,1 @@
+{"id":{"number":106},"class":"Keter","traits":[{"trait":"MovePhasing","params":[]},{"trait":"MovePocketDimension","params":[]},{"trait":"AffectLethalContact","params":[]}],"requirement":{"minimumSecurityLevel":5,"requiredObserverCapacity":0,"monthlyCost":130000},"baseBreachChance":700,"researchValue":{"initialValue":900,"decayPerCycle":28,"minimumValue":180},"capabilities":[]}
