@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SCP：常态的代价 | SCP: Necessary Measures"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://NewGameSetup.tscn"
 config/features=PackedStringArray("4.7", "C#")
 
 [autoload]

@@ -10,8 +10,8 @@ namespace Scp.Godot
         /// English: Controls full-screen selection, navigation and safe signal-failure transitions for three timelines; SaveMode remains the stable internal semantic and this phase creates no chained or event save.
         /// 参数与单位：转场和滚轮冷却使用现实秒；页面尺寸使用 Godot 逻辑像素；所有切换不消费游戏随机流。
         /// Parameters and units: transition and wheel cooldown use real seconds; layout uses Godot logical pixels; selection never consumes game randomness.
-        /// 返回值与边界：按钮通过场景切换产生界面副作用；延续时间线被禁用，破碎时间线只进入空档案页。
-        /// Return and boundaries: buttons cause scene changes; continuation remains disabled and broken timeline only opens the empty archive page.
+        /// 返回值与边界：按钮通过场景切换产生界面副作用；当前只有新生时间线可进入，延续与破碎时间线均被禁用。
+        /// Return and boundaries: buttons cause scene changes; only the new timeline is currently enterable, while continuation and broken timelines remain disabled.
         /// 确定性与原因：模式顺序、文案、默认选择和噪点种子固定，保证相同输入产生相同页面状态。
         /// Determinism and rationale: order, copy, default selection and grain seed are fixed so identical input produces identical page state.
         /// </summary>
@@ -26,11 +26,13 @@ namespace Scp.Godot
             "回到原本的时间线，以不同身份继续前行。",
             "进入一条已经毁灭的时间线，重新经历他们的人生。\n也许，你能拯救他们。"
         };
+        // 中文：玩家可见状态只表达当前时间线是否可进入；禁止在游戏内暴露开发计划、内容接入、权限实现或其他内部资料。
+        // English: Player-facing states only indicate whether a timeline can be entered; development plans, content intake, access implementation, and other internal material must never appear in game.
         private readonly string[] _states =
         {
             "可用 · 建立新的基金会历史",
-            "尚未开放 · 未来将从原时间线选择不同身份继续",
-            "档案入口可用 · 当前暂无已核准情景"
+            "尚未开放",
+            "尚未开放"
         };
 
         private AudioManager _audio = null!;
@@ -210,8 +212,8 @@ namespace Scp.Godot
             _name.Text = _names[_selected];
             _description.Text = _descriptions[_selected];
             _state.Text = _states[_selected];
-            _name.Disabled = _selected == 1;
-            _name.TooltipText = _selected == 1 ? "延续时间线尚未开放。" : _selected == 0 ? "进入新生时间线配置。" : "打开事件档案。";
+            _name.Disabled = _selected != 0;
+            _name.TooltipText = _selected == 0 ? "进入新生时间线。" : "尚未开放。";
             for (int index = 0; index < _tabs.Length; index++)
             {
                 _tabs[index].Text = index == _selected ? $"— {_names[index]} —" : _names[index];
@@ -225,7 +227,6 @@ namespace Scp.Godot
         private void EnterSelected()
         {
             if (_selected == 0) ChangeScene("res://NewGameSetup.tscn");
-            else if (_selected == 2) ChangeScene("res://EventArchive.tscn");
         }
 
         private void ChangeScene(string path)

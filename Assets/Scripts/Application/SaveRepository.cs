@@ -460,11 +460,45 @@ namespace Scp.Application
         }
 
         /// <summary>
-        /// 中文：只扫描 saves 根目录下一层、目录名为合法 save-id 的 main.json，并比较去除首尾空白后的名称与完整创建配置。损坏、未来版本或不可读存档会跳过，绝不阻止新建。
-        /// English: Scans only valid save-id directories directly under the saves root and compares trimmed names plus the complete creation configuration in main.json. Corrupt, future-version or unreadable saves are skipped and never block creation.
+        /// 中文：为新建档案返回不与现有可读主档重名的显示名称；原名称可用时直接返回，冲突时按“名称（1）”“名称（2）”递增，比较忽略大小写与首尾空白。
+        /// English: Returns a display name for a new archive that does not collide with an existing readable primary; returns the requested name when available, otherwise increments as "Name (1)", "Name (2)", comparing case-insensitively after trimming.
+        /// 返回/边界：目录不存在时原名称可用；读取任一合法主档失败会抛出异常，调用方必须中止创建而不能在名称唯一性未知时建立记录。
+        /// Return/boundary: the requested name is available when the directory does not exist; a failure reading any valid primary throws, so callers must abort rather than create while uniqueness is unknown.
         /// </summary>
-        /// <param name="candidate">中文：尚未写盘的新建存档候选；比较字段为 DisplayName、Identity、Difficulty、Seed 和 Mode。English: Proposed save not yet written; compared fields are DisplayName, Identity, Difficulty, Seed and Mode.</param>
-        /// <returns>中文：累计匹配标志与跳过数量；不返回路径或既有存档内容。English: Accumulated match flags and skipped count, without paths or existing save contents.</returns>
+        public string CreateUniqueDisplayName(string requestedName)
+        {
+            string baseName = string.IsNullOrWhiteSpace(requestedName) ? "新的存档" : requestedName.Trim();
+            if (!Directory.Exists(_rootDirectory)) return baseName;
+
+            var names = new System.Collections.Generic.HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string directory in Directory.EnumerateDirectories(_rootDirectory))
+            {
+                string saveId = Path.GetFileName(directory);
+                try
+                {
+                    ValidateSaveId(saveId);
+                }
+                catch (ArgumentException)
+                {
+                    // 中文：非存档目录不参与名称登记。English: Non-save directories do not participate in name registration.
+                    continue;
+                }
+
+                string path = Path.Combine(directory, "main.json");
+                if (!File.Exists(path)) continue;
+                SaveFile existing = _saveService.Deserialize(File.ReadAllText(path));
+                ValidateSave(existing);
+                if (!string.IsNullOrWhiteSpace(existing.DisplayName)) names.Add(existing.DisplayName.Trim());
+            }
+
+            if (!names.Contains(baseName)) return baseName;
+            for (int suffix = 1; ; suffix++)
+            {
+                string candidate = baseName + "（" + suffix + "）";
+                if (!names.Contains(candidate)) return candidate;
+            }
+        }
+
         public DuplicateSaveProbeResult ProbeDuplicates(SaveFile candidate)
         {
             if (candidate == null)

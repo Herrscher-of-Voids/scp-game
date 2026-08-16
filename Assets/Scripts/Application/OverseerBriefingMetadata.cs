@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 namespace Scp.Application
 {
     /// <summary>
-    /// 中文：O5 任命与交接页的持久化只读摘要。所有字段均为玩家可见文本，重载时直接读取以保证完全一致；当前内容仅描述内部开发三设施演示世界。
-    /// English: Persisted read-only summary for the O5 appointment and handover page. Every field is player-visible text and is read directly on reload for exact consistency; current content describes only the internal three-site development demo.
+    /// 中文：O5 任命与交接页的持久化只读摘要。所有字段均为玩家可见文本，重载时直接读取以保证完全一致；内容描述当前新生时间线生成的世界状态。
+    /// English: Persisted read-only summary for the O5 appointment and handover page. Every field is player-visible text and is read directly on reload for exact consistency; content describes the world state generated for the current new timeline.
     /// </summary>
     public sealed class OverseerBriefingMetadata
     {
